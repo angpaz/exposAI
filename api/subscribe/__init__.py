@@ -19,9 +19,7 @@ def main(req: func.HttpRequest, outputTable: func.Out[str]) -> func.HttpResponse
 
     api_key = os.environ['openAIKey']
 
-
     if input:
-        
         
         try:
             openai.api_key = api_key
@@ -45,12 +43,12 @@ def main(req: func.HttpRequest, outputTable: func.Out[str]) -> func.HttpResponse
             "RowKey": rowKey
             # "test": json.dumps(res)
             }
-            # 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
 
             outputTable.set(json.dumps(data))
     
     
             return func.HttpResponse(res, mimetype="text/plain")
+        
         except Exception as e:
             errorAI = e
             return func.HttpResponse(
