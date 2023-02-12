@@ -9,6 +9,7 @@
       "methods": [
         "post"
       ]
+
     },
     {
       "type": "http",
@@ -19,7 +20,7 @@
       "type": "table",
       "direction": "out",
       "name": "outputTable",
-      "tableName": "subscribers",
+      "tableName": "exposes",
       "connection": "example_STORAGE"
     }
   ]

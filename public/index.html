@@ -17,9 +17,34 @@
   </head>
   <body>
     <noscript>
-      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+      <strong>We're sorry  <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
     <div id="app"></div>
     <!-- built files will be auto injected -->
   </body>
+
+  <script>
+function copyText() {
+  var $copyText = document.getElementById('grid-last-name').value;
+  // console.log($copyText)
+  var button = document.getElementById('copyButton');
+  navigator.clipboard.writeText($copyText).then(function() {
+    var originalText = button.innerText;
+    button.innerText = 'Copied!';
+    var $clipboardIcon = document.getElementById('clipboardicon');
+    $clipboardIcon.innerHTML = '<svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+
+
+    setTimeout(function(){
+      button.innerText = originalText;
+      $clipboardIcon.innerHTML = '      <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>';
+
+      }, 1500);
+  }, function() {
+    button.style.cssText = "background-color: var(--red);";
+    button.innerText = 'Error';
+  });
+}
+
+  </script>
 </html>

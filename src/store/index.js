@@ -26,19 +26,21 @@ export default createStore({
     // actions are functions that cause side effects and can involve
     // asynchronous operations.
     actions: {
-        async subscribe (_, email) {
+        async subscribe (_, input) {
             await axios({
                 //  Post request as defined by api/subscribe/function.json
                 method: 'post',
                 // This is how we handle CORS. It gets the value from the 
                 // .env file
+                // headers: {'Content-Type':'text/event-stream'},
                 url: `${process.env.VUE_APP_API || 'api'}/subscribe`,
                 withCredentials: false,
+                
                 // Additional params
                 params: {
-                    emailaddress: email,
+                    inputprompt: input,
                 },
-            }).then(res => {
+            }).then(res => { console.log(res)
                 // Set response message & type when API call successful
                 this.commit('SET_RESPONSEMESSAGE', res.data)
                 this.commit('SET_RESPONSETYPE', 'success')
