@@ -15,6 +15,7 @@ def main(req: func.HttpRequest, outputTable: func.Out[str]) -> func.HttpResponse
             "emailaddress": f"{email}",
             "PartitionKey": "email",
             "RowKey": rowKey
+            
         }
 
         outputTable.set(json.dumps(data))
