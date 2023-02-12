@@ -9,7 +9,7 @@
         
         <div class="md:hidden pt-2 flex w-full">
             <!-- Logo -->
-            <img class="object-scale-down ml-3 m-4 h-20 cursor-pointer" @click="$router.push('/')" src="../assets/imgs/logo.webp" alt="" />
+            <img class="object-scale-down ml-3 m-4 h-20 cursor-pointer" @click="$router.push('/')" src="../assets/imgs/logo_big.png" alt="" />
             
             <div class="justify-between flex-1" />
             <!-- Hamburger menu icon -->
@@ -26,12 +26,21 @@
     <!-- Large menu -->
     <nav :class="isOpen ? 'block' : 'hidden'" class="container pt-2 md:flex">
         <!-- Logo -->
-        <img class="hidden md:flex md:object-scale-down md:my-auto md:h-20 md:cursor-pointer" @click="$router.push('/')" src="../assets/imgs/logo.webp" alt="" />
+        <img class="hidden md:flex md:object-scale-down md:my-auto md:h-20 md:cursor-pointer" @click="$router.push('/')" src="../assets/imgs/logo_big.png" alt="" />
 
         <!-- Nav -->
-        <button type="button" @click="$router.push('/features')" class="mt-1 block px-5 py-4 text-xl rounded md:mt-0 md:ml-2 transform transition hover:scale-105 duration-200 ease-in-out">Features</button>
-    </nav>
+        <button type="button" @click="$router.push('/')" class="mt-1 block px-5 py-4 text-xl rounded md:mt-0 md:ml-2 transform transition hover:scale-105 duration-200 ease-in-out">Home</button>
+        <button type="button" @click="$router.push('/features')" class="mt-1 block px-5 py-4 text-xl rounded md:mt-0 md:ml-2 transform transition hover:scale-105 duration-200 ease-in-out">Historie</button>
+        
+        <button type="button" @click="$router.push('#')" class="mt-1 block px-5 py-4 text-xl rounded md:mt-0 md:ml-2 transform transition hover:scale-105 duration-200 ease-in-out text-indigo-700	">Login</button>
+
+      </nav>
   </nav>
+
+
+
+
+
 </template>
 
 <script>
