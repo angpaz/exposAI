@@ -18,7 +18,8 @@ def main(req: func.HttpRequest, outputTable: func.Out[str]) -> func.HttpResponse
     errorAI = ""
 
     api_key = os.environ['openAIKey']
-    
+
+
     if input:
         
         
