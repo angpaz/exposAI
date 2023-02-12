@@ -4,6 +4,7 @@ import json
 import azure.functions as func
 
 
+
 def main(req: func.HttpRequest, outputTable: func.Out[str]) -> func.HttpResponse:
     logging.info('createPage HTTP trigger function processed a request.')
 
@@ -15,7 +16,7 @@ def main(req: func.HttpRequest, outputTable: func.Out[str]) -> func.HttpResponse
             "emailaddress": f"{email}",
             "PartitionKey": "email",
             "RowKey": rowKey
-            
+
         }
 
         outputTable.set(json.dumps(data))
