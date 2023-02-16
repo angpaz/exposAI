@@ -2,11 +2,9 @@ import logging
 import uuid
 import json 
 
-
 import os
 import openai
 import azure.functions as func
-
 
 def main(req: func.HttpRequest, outputTable: func.Out[str]) -> func.HttpResponse:
     logging.info('createPage HTTP trigger function processed a request.')
@@ -16,6 +14,7 @@ def main(req: func.HttpRequest, outputTable: func.Out[str]) -> func.HttpResponse
     rowKey = str(uuid.uuid4())
     # res = "start"
     errorAI = ""
+
 
     api_key = os.environ['openAIKey']
 
