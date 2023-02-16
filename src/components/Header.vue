@@ -31,8 +31,8 @@
         <!-- Nav -->
         <button type="button" @click="$router.push('/')" class="mt-1 block px-5 py-4 text-xl rounded md:mt-0 md:ml-2 transform transition hover:scale-105 duration-200 ease-in-out">Home</button>
         <button type="button" @click="$router.push('/features')" class="mt-1 block px-5 py-4 text-xl rounded md:mt-0 md:ml-2 transform transition hover:scale-105 duration-200 ease-in-out">Historie</button>
-        
         <button type="button" @click="$router.push('#')" class="mt-1 block px-5 py-4 text-xl rounded md:mt-0 md:ml-2 transform transition hover:scale-105 duration-200 ease-in-out text-indigo-700	">Login</button>
+        <button type="button" @click="$router.push('/demo')" class="mt-1 block px-5 py-4 text-xl rounded md:mt-0 md:ml-2 transform transition hover:scale-105 duration-200 ease-in-out text-indigo-700	">Demo</button>
 
       </nav>
   </nav>
