@@ -1,20 +1,38 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
+  { //Diesen Teil nicht löschen. Dient als Backup und zur Erstellung neuer Unterseiten.
+    path: '/back-up-page',
+    name: 'BackUpView',
+    component: () => import('@/views/BackUpView.vue'),
+    meta: {
+      title: 'BackUp',
+      metaTags: [
+        {
+          name: 'BackUp',
+          content: 'BackUp Page'
+        },
+        {
+          property: 'og:PagUp',
+          content: 'BackUp Page'
+        }
+      ]
+    }
+  },  
   {
     path: '/',
-    name: 'LandingPage',
+    name: 'Home',
     component: () => import('@/views/LandingPage.vue'),
     meta: {
-      title: 'subscrbr',
+      title: 'ExposAI',
       metaTags: [
         {
           name: 'description',
-          content: 'Collecting Emails Made Easy'
+          content: 'Creating Exposes Made Easy'
         },
         {
           property: 'og:description',
-          content: 'Collecting Emails Made Easy'
+          content: 'Creating Exposes Made Easy'
         }
       ]
     }
@@ -24,19 +42,38 @@ const routes = [
     name: 'AnotherView',
     component: () => import('@/views/AnotherView.vue'),
     meta: {
-      title: 'subscrbr - Features',
+      title: 'Features',
       metaTags: [
         {
           name: 'description',
-          content: 'Subscrbr features'
+          content: 'ExposAi Feature'
         },
         {
           property: 'og:description',
-          content: 'Subscrbr features'
+          content: 'ExposAi Feature'
+        }
+      ]
+    }
+  },
+  {
+    path: '/demo',
+    name: 'Demo',
+    component: () => import('@/views/Demo.vue'),
+    meta: {
+      title: 'Demo',
+      metaTags: [
+        {
+          name: 'Demo',
+          content: 'Demo Page'
+        },
+        {
+          property: 'og:description',
+          content: 'Demo Page'
         }
       ]
     }
   }
+
 ]
 
 const router = createRouter({
