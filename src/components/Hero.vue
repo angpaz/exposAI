@@ -8,7 +8,7 @@
       <h1
         class="title-font tracking-tight font-extrabold text-2xl xs:text-3xl lg:text-4xl 2xl:text-6xl mb-4 text-gray-800"
       >
-        Immobilien Exposés TEST<span style="color: #6666FF;">mit AI</span>
+        Immobilien Exposés V2<span style="color: #6666FF;">mit AI</span>
       </h1>
 
       <!-- Sub text -->
