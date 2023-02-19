@@ -47,7 +47,9 @@
                     country="de"
                 >
                 </vue-google-autocomplete>
-
+                <h3 class="title is-4">Start typing an address and below you will see found result,
+                <a v-on:click="$refs.address.geolocate()">or force current location</a>
+            </h3>
 
             <div class="message is-success" v-show="address">
                 <div class="message-body">{{ address }}</div>
@@ -164,8 +166,6 @@
 import { mapGetters, mapActions } from "vuex";
 import Vue from 'vue';
 import VueGoogleAutocomplete from '/node_modules/vue-google-autocomplete/src/VueGoogleAutocomplete.vue';
-
-//Vue.config.globalProperties.$googleMapsApiKey = 'AIzaSyCVT_R0nsbHL_Y3q2TsvR9Lfq4ViNjECXU';
 
 export default {
 
