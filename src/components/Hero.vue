@@ -37,7 +37,10 @@
       <label class="block uppercase tracking-wide text-gray-700 text-xs font-italic mb-2" for="grid-first-name">
         Optional: Adresse für eine Lagebeschreibung!
       </label>
- <vue-google-autocomplete
+
+      <div class="flex flex-row"> 
+        
+        <vue-google-autocomplete
                     id="map"
                     ref="address"
                     class="break-words h-10 w-60 appearance-none block w-full text-gray-700 border border-purple-600 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white "
@@ -45,15 +48,20 @@
                     v-on:placechanged="getAddressData"
                     v-on:error="handleError"
                     country="de"
-                >
-                </vue-google-autocomplete>
-                <h3 class="title is-4">Start typing an address and below you will see found result,
-                <a v-on:click="$refs.address.geolocate()">or force current location</a>
-            </h3>
+                    types="street_address"
+                                    >
 
-            <div class="message is-success" v-show="address">
+                                    
+                </vue-google-autocomplete>
+        
+        <button type="button" v-on:click="$refs.address.geolocate();" class="h-10 w-20 text-sm text-purple-600 font-semibold border border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2">Get location</button>
+</div>
+
+                
+
+            <!-- <div class="message is-success" v-show="address">
                 <div class="message-body">{{ address }}</div>
-            </div>
+            </div> -->
 
 <!--  
  <section class="hero">
@@ -183,7 +191,7 @@ export default {
   },
   mounted() {
 
-    this.$refs.address.focus()
+    this.$refs.address.focus();
 
   },
   computed: {
@@ -209,7 +217,8 @@ export default {
        */
        getAddressData: function (addressData, placeResultData, id) {
         this.address = addressData;
-      },
+        console.log(addressData);
+      }
   },
   watch: {
     responseMsg(newVal, oldVal) {
