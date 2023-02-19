@@ -1,5 +1,6 @@
 
 <template>
+
   <div
     class="container mx-auto pt-40 lg:pt-52 2xl:pt-64 pb-16 lg:pb-20 xl:pb-28 2xl:pb-52 flex flex-col px-5 py-24 justify-center items-center max-w-7xl"
   >
@@ -36,8 +37,50 @@
       <label class="block uppercase tracking-wide text-gray-700 text-xs font-italic mb-2" for="grid-first-name">
         Optional: Adresse für eine Lagebeschreibung!
       </label>
-      <input v-model="adress"
- class="break-words h-10 w-60 appearance-none block w-full text-gray-700 border border-purple-600 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white " id="grid-first-name" type="text" placeholder="Venloerstraße 31, 50677 Köln">      
+ <vue-google-autocomplete
+                    id="map"
+                    ref="address"
+                    class="break-words h-10 w-60 appearance-none block w-full text-gray-700 border border-purple-600 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white "
+                    placeholder="Venloerstraße 31, 50677 Köln"
+                    v-on:placechanged="getAddressData"
+                    v-on:error="handleError"
+                    country="de"
+                >
+                </vue-google-autocomplete>
+
+
+            <div class="message is-success" v-show="address">
+                <div class="message-body">{{ address }}</div>
+            </div>
+
+<!--  
+ <section class="hero">
+    <div class="hero-body">
+        <div class="container" id="app">
+            <h3 class="title is-4">Start typing an address and below you will see found result,
+                <a v-on:click="$refs.address.geolocate()">or force current location</a>
+            </h3>
+            <p class="control">
+                <vue-google-autocomplete
+                    id="map"
+                    ref="address"
+                    classname="input"
+                    placeholder="Start typing"
+                    v-on:placechanged="getAddressData"
+                    v-on:error="handleError"
+                    country="de"
+                >
+                </vue-google-autocomplete>
+            </p>
+
+            <div class="message is-success" v-show="address">
+                <div class="message-body">{{ address }}</div>
+            </div>
+        </div>
+    </div>
+</section> -->
+
+ 
  <button
             id="heroEmailSubscribe"
             @click="subscribeEmail"
@@ -119,16 +162,29 @@
 </template>
 <script>
 import { mapGetters, mapActions } from "vuex";
+import Vue from 'vue';
+import VueGoogleAutocomplete from '/Users/angelospazaitis/ExposeAI/exposAI/node_modules/vue-google-autocomplete/src/VueGoogleAutocomplete.vue';
 
+//Vue.config.globalProperties.$googleMapsApiKey = 'AIzaSyCVT_R0nsbHL_Y3q2TsvR9Lfq4ViNjECXU';
 
 export default {
+
+  components: { VueGoogleAutocomplete },
+
   data() {
     return {
       // This is the local version of the email,
       // this is mounted to the input
       oart: "",
-      resultExp: ""
+      resultExp: "",
+      address: "",
+
     };
+  },
+  mounted() {
+
+    this.$refs.address.focus()
+
   },
   computed: {
     ...mapGetters({
@@ -139,11 +195,21 @@ export default {
       responseType: "getResponseType",
     }),
   },
+
   methods: {
     ...mapActions(["subscribe"]),
     subscribeEmail: function() {
       this.subscribe(this.rawtext);
     },
+    /**
+       * When the location found
+       * @param {Object} addressData Data of the found location
+       * @param {Object} placeResultData PlaceResult object
+       * @param {String} id Input container ID
+       */
+       getAddressData: function (addressData, placeResultData, id) {
+        this.address = addressData;
+      },
   },
   watch: {
     responseMsg(newVal, oldVal) {
