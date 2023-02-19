@@ -58,7 +58,7 @@ const routes = [
   {
     path: '/demo',
     name: 'Demo',
-    component: () => import('@/views/Demo.vue'),
+    component: () => import('@/views/DemoPage.vue'),
     meta: {
       title: 'Demo',
       metaTags: [

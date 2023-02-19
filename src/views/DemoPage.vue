@@ -1,4 +1,3 @@
-<!--Die Datei nicht löschen/verändern. Dient als Backup und Vorlage zum Erstellen von Unterseiten-->
 <template>
   <Header />
   <Demo />
