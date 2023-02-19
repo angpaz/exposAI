@@ -23,7 +23,7 @@ def main(req: func.HttpRequest, outputTable: func.Out[str]) -> func.HttpResponse
             openai.api_key = api_key
             response = openai.Completion.create(
             model="text-davinci-003",
-            prompt="Schreibe ein Expose für eine Wohnung mit folgenden Daten:"+input,
+            prompt="Schreibe ein Expose für eine Wohnung mit folgenden Daten. Unterteile dabei das Ergebnis in Ausstattung und Lagebeschreibung auf und gebe das Ergebnis im json Format aus."+input,
             temperature=0.7,
             max_tokens=1000,
             top_p=1,
