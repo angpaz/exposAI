@@ -163,7 +163,7 @@
 <script>
 import { mapGetters, mapActions } from "vuex";
 import Vue from 'vue';
-import VueGoogleAutocomplete from '/Users/angelospazaitis/ExposeAI/exposAI/node_modules/vue-google-autocomplete/src/VueGoogleAutocomplete.vue';
+import VueGoogleAutocomplete from '/node_modules/vue-google-autocomplete/src/VueGoogleAutocomplete.vue';
 
 //Vue.config.globalProperties.$googleMapsApiKey = 'AIzaSyCVT_R0nsbHL_Y3q2TsvR9Lfq4ViNjECXU';
 
