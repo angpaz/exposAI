@@ -30,7 +30,11 @@ def main(req: func.HttpRequest, outputTable: func.Out[str]) -> func.HttpResponse
             frequency_penalty=0,
             presence_penalty=0
             # stream=True
-
+# sprengletter
+# flowfact
+# prototyp entwickeln -> makler convention - > preismodell? joint venture?
+# klingt nach einem vorschlag
+# onoffice
             )
             res = response["choices"][0]["text"]
             # res = response
