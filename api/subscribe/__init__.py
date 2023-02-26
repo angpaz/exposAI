@@ -1,6 +1,7 @@
 import logging
 import uuid
 import json 
+import requests 
 
 import os
 import openai
@@ -9,14 +10,16 @@ import azure.functions as func
 def main(req: func.HttpRequest, outputTable: func.Out[str]) -> func.HttpResponse:
     logging.info('createPage HTTP trigger function processed a request.')
 
+    url_gmaps = "http://localhost:7071/api/gmaps?inputprompt=test"
+    gmaps_request = requests.request("POST", url_gmaps)
     input = req.params.get('inputprompt')
 
     rowKey = str(uuid.uuid4())
     # res = "start"
     errorAI = ""
 
-    api_key = os.environ['openAIKey']
-    
+    # api_key = os.environ['openAIKey']
+    api_key = "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"
     if input:
         
         try:

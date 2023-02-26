@@ -4,3 +4,4 @@
 
 azure-functions
 openai==0.26.5
+googlemaps
